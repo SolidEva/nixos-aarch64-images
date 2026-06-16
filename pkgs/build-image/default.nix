@@ -1,4 +1,4 @@
-{ lib, writeText, utillinux, stdenv, python3 }:
+{ lib, writeText, util-linux, stdenv, python3 }:
 
 { config }:
 let
@@ -20,7 +20,7 @@ in stdenv.mkDerivation {
   dontPatchShebangs = true;
 
   nativeBuildInputs = [
-    python3 utillinux
+    python3 util-linux
   ];
   buildPhase = ''
     runHook preBuild

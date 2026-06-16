@@ -93,8 +93,8 @@ class Partition:
             return self._calculated_size
 
         cmd = ["du", "-B", "512", "--apparent-size", self.source]
-        proc = subprocess.run(cmd, check=True, stdout=subprocess.PIPE)
-        self._calculated_size = int(proc.stdout)
+        proc = subprocess.run(cmd, check=True, stdout=subprocess.PIPE, text=True)
+        self._calculated_size = int(proc.stdout.split("\t")[0])
         return self._calculated_size
 
 
